@@ -27,7 +27,7 @@ describe('.createAutoComplete', () => {
 
 describe('.autocomplete', () => {
     it('should always return an array', () => {
-        const autocomplete = createAutoComplete(['a', 'Ab']);
+        const autocomplete = createAutoComplete(['Ab', 'a']);
 
         expect(Array.isArray(autocomplete('sdfasdfas'))).toBe(true);
         expect(Array.isArray(autocomplete(''))).toBe(true);
@@ -42,14 +42,14 @@ describe('.autocomplete', () => {
     });
 
     it('Should be case insensentitive', () => {
-        const autocomplete = createAutoComplete([ 'a', 'Ab']);
+        const autocomplete = createAutoComplete(['Ab', 'a']);
 
-        expect(autocomplete('a')).toEqual(['a', 'Ab']);
-        expect(autocomplete('A')).toEqual(['a', 'Ab']);
+        expect(autocomplete('a')).toEqual(['Ab', 'a']);
+        expect(autocomplete('A')).toEqual(['Ab', 'a']);
     });
 
     it('Should return empty array if input is empty or nothing matches', () => {
-        const autocomplete = createAutoComplete(['a', 'Ab']);
+        const autocomplete = createAutoComplete(['Ab', 'a']);
 
         expect(autocomplete()).toEqual([]);
         expect(autocomplete('')).toEqual([]);
