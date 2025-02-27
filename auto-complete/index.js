@@ -1,7 +1,7 @@
 function createAutoComplete(arrData) {
   return function(queryStr) {
     let res;
-    if (queryStr === "") {
+    if (queryStr === "" || queryStr === undefined) {
         res = [];
     } else {
         const lowerQueryStr = queryStr.toLowerCase();
@@ -12,7 +12,3 @@ function createAutoComplete(arrData) {
 }
 
 module.exports = {createAutoComplete};
-
-const data = ["java", "php", "javascript", "python"];
-const autocomplete = createAutoComplete(data);
-console.log(autocomplete("mongo"));
